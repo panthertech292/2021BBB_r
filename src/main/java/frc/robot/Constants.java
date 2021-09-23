@@ -110,6 +110,12 @@ public final class Constants {
 
         public static final int kBallReadySensor = 5;
     }
+    public static final class LiftConstants{
+        //These are place holder values!
+        public static final int kLeftLiftArmPCM = 0;
+        public static final int kLeftLiftArmIn = 0;
+        public static final int kLeftLiftArmOut = 0;
+    }
    
 }
 /*DigitalInput/DigitalOutput Addressing
