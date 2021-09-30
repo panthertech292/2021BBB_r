@@ -112,9 +112,9 @@ public final class Constants {
     }
     public static final class LiftConstants{
         //These are place holder values!
-        public static final int kLeftLiftArmPCM = 0;
-        public static final int kLeftLiftArmIn = 0;
-        public static final int kLeftLiftArmOut = 0;
+        //These also probably need better names, I'm not really sure what is going with this system I'll be real
+        public static final int kLiftElevation = 91;
+        public static final int kLiftWinch = 90;
     }
    
 }
