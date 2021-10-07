@@ -61,5 +61,6 @@ public class PickupSubsystem extends SubsystemBase {
     pickupMotorTop.set(v_pickupSpeedTop);
     pickupMotorBottom.set(v_pickupSpeedBottom);
     pickupMotorArm.set(v_pickupSpeedArm);
+    System.out.println(v_pickupSpeedArm);
   }
 }

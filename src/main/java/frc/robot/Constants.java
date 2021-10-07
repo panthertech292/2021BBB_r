@@ -29,7 +29,7 @@ public final class Constants {
         public static final int kFrontLeftMotor = 2;
         public static final int kBackLeftMotor = 4;
         public static final int kFrontRightMotor = 1;
-        public static final int kBackRightMotor = 17;
+        public static final int kBackRightMotor = 3;
         //Auto Move Constants
         public static final double kAutoForwardEncoderDistance = 144; //inches!
         public static final double kAutoBackwardEncoderDistance = 144; 
@@ -111,10 +111,14 @@ public final class Constants {
         public static final int kBallReadySensor = 5;
     }
     public static final class LiftConstants{
-        //These are place holder values!
-        //These also probably need better names, I'm not really sure what is going with this system I'll be real
-        public static final int kLiftElevation = 91;
-        public static final int kLiftWinch = 90;
+        //Talon Mapping
+        public static final int kLiftWinchMotor1 = 51;
+        public static final int kLiftWinchMotor2 = 52;
+        //Solenoid Mapping
+        public static final int kliftSolenoidLeftUp = 1;
+        public static final int kliftSolenoidLeftDown = 2;
+        public static final int kliftSolenoidRightUp = 3;
+        public static final int kliftSolenoidRightDown = 4;
     }
    
 }
