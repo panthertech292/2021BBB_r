@@ -23,6 +23,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.GateSubsystem;
 import frc.robot.subsystems.PickupSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.LiftSubsystem;
 import frc.robot.commands.*;
 
 //import frc.robot.subsystems.*;
@@ -62,6 +63,7 @@ public class RobotContainer {
   private final PickupSubsystem s_PickupSubsystem = new PickupSubsystem();
   private final GateSubsystem s_GateSubsystem = new GateSubsystem();
   private final BeltSubsystem s_BeltSubsystem = new BeltSubsystem();
+  private final LiftSubsystem s_LiftSubsystem = new LiftSubsystem();
 
   // Auto Commands
   private final Command z_AutoForward = new AutoForward(s_DriveSubsystem, v_LeftSpeed, v_RightSpeed, v_Time);
@@ -130,6 +132,15 @@ public class RobotContainer {
   private final Command z_BeltSchedule = new BeltSchedule(s_BeltSubsystem);
   private final Command z_BeltMoveTimed = new BeltMoveTimed(s_BeltSubsystem);
   private final Command z_BeltBackwardAll = new BeltBackwardAll(s_BeltSubsystem);
+
+  //Lift Commands
+  //Arm Commands
+  private final Command z_LiftArmRaise = new LiftArmRaise(s_LiftSubsystem);
+  private final Command z_LiftArmDown = new LiftArmDown(s_LiftSubsystem);
+  private final Command z_LiftArmToggle = new LiftArmToggle(s_LiftSubsystem);
+  //Winch Commands
+  private final Command z_LiftWinchRun = new LiftWinchRun(s_LiftSubsystem);
+  private final Command z_LiftWinchReverse = new LiftWinchReverse(s_LiftSubsystem);
 
   SendableChooser<Command> o_chooser = new SendableChooser<>();
 
@@ -216,11 +227,10 @@ public class RobotContainer {
     // d_xButton.whenPressed(z_AutoSquareRight);
 
     o_aButton.whileHeld(z_PickupRunHalf);
-    o_yButton.whenPressed(z_ShooterFireGated);
+    //o_yButton.whenPressed(z_LiftArmToggle);
+    o_yButton.whenHeld(z_LiftArmToggle);
     o_xButton.whenPressed(z_TotalFireThirdZone);
-
-    // o_yButton.whenReleased(z_gate1Up);
-    o_bButton.whenPressed(z_FullShootFromFar);
+    o_bButton.whenPressed(z_LiftWinchRun);
 
     o_startButton.whenPressed(z_BeltForwardAll);
     o_backButton.whileHeld(z_BeltBackwardAll);

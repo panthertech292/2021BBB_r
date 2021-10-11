@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
@@ -35,6 +36,14 @@ public class LiftSubsystem extends SubsystemBase {
     liftSolenoidRight = new DoubleSolenoid(LiftConstants.kliftSolenoidRightUp, LiftConstants.kliftSolenoidRightDown);
     //Variables
     v_liftWinchSpeed = 0.0;
+
+    //Set lift arms?
+    //This is a test, not sure this will work tbh
+    liftSolenoidLeft.set(Value.kReverse);
+    liftSolenoidRight.set(Value.kReverse);
+    
+    System.out.println(liftSolenoidLeft.get());
+    System.out.println(liftSolenoidRight.get());
   }
 
   public void LiftRunWinch(){
@@ -48,21 +57,26 @@ public class LiftSubsystem extends SubsystemBase {
     v_liftWinchSpeed = 0.0;
   }
   public void LiftRaiseArms(){
+    System.out.println("Going up!");
     liftSolenoidLeft.set(Value.kForward);
     liftSolenoidRight.set(Value.kForward);
   }
   public void LiftLowerArms(){
+    System.out.println("Going down!");
     liftSolenoidLeft.set(Value.kReverse);
     liftSolenoidRight.set(Value.kReverse);
   }
-
+  public void LiftToggleArms(){
+    System.out.println("Toggling Arms!");
+    liftSolenoidRight.toggle();
+    liftSolenoidLeft.toggle();
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     liftWinchMotor1.set(v_liftWinchSpeed);
     liftWinchMotor2.set(v_liftWinchSpeed);
-    liftSolenoidLeft.set(Value.kForward);
-    liftSolenoidRight.set(Value.kForward);
-    
+    //System.out.println(liftSolenoidLeft.get());
+    //System.out.println(liftSolenoidRight.get());
   }
 }

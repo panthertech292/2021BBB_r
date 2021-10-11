@@ -116,9 +116,9 @@ public final class Constants {
         public static final int kLiftWinchMotor2 = 52;
         //Solenoid Mapping
         public static final int kliftSolenoidLeftUp = 1;
-        public static final int kliftSolenoidLeftDown = 2;
+        public static final int kliftSolenoidLeftDown = 0;
         public static final int kliftSolenoidRightUp = 3;
-        public static final int kliftSolenoidRightDown = 4;
+        public static final int kliftSolenoidRightDown = 2;
     }
    
 }
