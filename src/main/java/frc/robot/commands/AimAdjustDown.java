@@ -24,8 +24,11 @@ public class AimAdjustDown extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute(){
+    System.out.println("We are executing");
+    System.out.println(ShooterSubsystem.aimResetCheck());
     if(ShooterSubsystem.aimResetCheck()==true){
-    ShooterSubsystem.ShooterAimDown();
+      ShooterSubsystem.ShooterAimDown();
+      System.out.println("We are trying to go down");
     }
   }
 

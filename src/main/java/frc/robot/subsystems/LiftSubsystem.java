@@ -36,14 +36,6 @@ public class LiftSubsystem extends SubsystemBase {
     liftSolenoidRight = new DoubleSolenoid(LiftConstants.kliftSolenoidRightUp, LiftConstants.kliftSolenoidRightDown);
     //Variables
     v_liftWinchSpeed = 0.0;
-
-    //Set lift arms?
-    //This is a test, not sure this will work tbh
-    liftSolenoidLeft.set(Value.kReverse);
-    liftSolenoidRight.set(Value.kReverse);
-    
-    System.out.println(liftSolenoidLeft.get());
-    System.out.println(liftSolenoidRight.get());
   }
 
   public void LiftRunWinch(){
@@ -51,7 +43,7 @@ public class LiftSubsystem extends SubsystemBase {
   }
   //This function should only be used in the pits to rewind the winch!
   public void LiftReverseWinch(){
-    v_liftWinchSpeed = 0.5;
+    v_liftWinchSpeed = -0.5;
   }
   public void LiftStopWinch(){
     v_liftWinchSpeed = 0.0;

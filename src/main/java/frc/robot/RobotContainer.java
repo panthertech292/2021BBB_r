@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.BeltSubsystem;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.DriveSubsystem;
@@ -117,6 +118,7 @@ public class RobotContainer {
   private final Command z_TotalFireThirdZone = new TotalFireThirdZone(s_ShooterSubsystem, s_BeltSubsystem);
   private final Command z_TotalFireFarZone = new TotalFireFarZone(s_ShooterSubsystem, s_BeltSubsystem);
   private final Command z_FullShootFromFar = new FullShootFromFar(s_ShooterSubsystem, s_BeltSubsystem, s_DriveSubsystem);
+  private final Command z_TotalFire = new TotalFire(s_ShooterSubsystem, s_BeltSubsystem);
   // Pickup Commands
   private final Command z_PickupRunHalf = new PickupRunHalf(s_PickupSubsystem);
 
@@ -182,13 +184,16 @@ public class RobotContainer {
     final JoystickButton d_aButton = new JoystickButton(io_drivercontroller, Button.kA.value);
     final JoystickButton d_bButton = new JoystickButton(io_drivercontroller, Button.kB.value);
     final JoystickButton d_xButton = new JoystickButton(io_drivercontroller, Button.kX.value);
+    final JoystickButton d_yButton = new JoystickButton(io_drivercontroller, Button.kY.value);
     final JoystickButton d_startButton = new JoystickButton(io_drivercontroller, Button.kStart.value);
     final JoystickButton d_backButton = new JoystickButton(io_drivercontroller, Button.kBack.value);
-     final JoystickButton d_yButton = new JoystickButton(io_drivercontroller, Button.kY.value);
-    // final JoystickButton d_lbumper = new JoystickButton(io_drivercontroller,
-    // Button.kBumperLeft.value);
-    // final JoystickButton d_rbumper = new JoystickButton(io_drivercontroller,
-    // Button.kBumperRight.value);
+    final POVButton d_dPadUp = new POVButton(io_drivercontroller, 0);
+    final POVButton d_dPadRight = new POVButton(io_drivercontroller, 90);
+    final POVButton d_dPadDown = new POVButton(io_drivercontroller, 180);
+    final POVButton d_dPadLeft = new POVButton(io_drivercontroller, 270);
+    final JoystickButton d_rBumper = new JoystickButton(io_drivercontroller,Button.kBumperRight.value);
+    final JoystickButton d_lBumper = new JoystickButton(io_drivercontroller,Button.kBumperLeft.value);
+
 
     final JoystickButton o_aButton = new JoystickButton(io_opercontroller, Button.kA.value);
     final JoystickButton o_bButton = new JoystickButton(io_opercontroller, Button.kB.value);
@@ -201,7 +206,11 @@ public class RobotContainer {
     final POVButton o_dPadDown = new POVButton(io_opercontroller, 180);
     final POVButton o_dPadLeft = new POVButton(io_opercontroller, 270);
     final JoystickButton o_rBumper = new JoystickButton(io_opercontroller,Button.kBumperRight.value);
-    final JoystickButton o_lBumper = new JoystickButton(io_drivercontroller,Button.kBumperLeft.value);
+    final JoystickButton o_lBumper = new JoystickButton(io_opercontroller,Button.kBumperLeft.value);
+    
+
+    
+    
     
     // Driver Button Binds6
     //d_aButton.whileHeld(z_BeltForwardAll);
@@ -213,31 +222,33 @@ public class RobotContainer {
     
     
     if(getRobotID()== 0){
-      d_backButton.whileHeld(z_AimAdjustDown);
-      d_startButton.whileHeld(z_AimAdjustUp);
+      //d_backButton.whileHeld(z_AimAdjustDown);
+      //d_startButton.whileHeld(z_AimAdjustUp);
       
     }
-    d_aButton.whenPressed(z_VisionAlign);
-    d_bButton.whenPressed(z_AutoSquareRight);
+    //d_aButton.whenPressed(z_VisionAlign);
+    //d_bButton.whenPressed(z_AutoSquareRight);
     // o_xButton.whenPressed(z_VisionAll);
-    // d_lbumper.whenPressed(m_driveJogLeft);
-    // d_rbumper.whenPressed(m_driveJogRight);
 
-    // o_bButton.whenPressed(z_AutoForward);
-    // d_xButton.whenPressed(z_AutoSquareRight);
+    //Driver
+    d_backButton.whileHeld(z_LiftWinchReverse);
+    d_rBumper.whileHeld(z_AimAdjustUp);
+    d_lBumper.whileHeld(z_AimAdjustDown);
 
-    o_aButton.whileHeld(z_PickupRunHalf);
-    //o_yButton.whenPressed(z_LiftArmToggle);
+    d_dPadUp.whenPressed(z_TotalFire);
+
+    //Operator
+    o_aButton.whenPressed(z_TotalFireNearZone);
+    o_bButton.whenPressed(z_TotalFireSecondZone);
+    o_xButton.whileHeld(z_LiftWinchRun);
     o_yButton.whenHeld(z_LiftArmToggle);
-    o_xButton.whenPressed(z_TotalFireThirdZone);
-    o_bButton.whenPressed(z_LiftWinchRun);
 
-    o_startButton.whenPressed(z_BeltForwardAll);
+    o_startButton.whileHeld(z_BeltForwardAll);
     o_backButton.whileHeld(z_BeltBackwardAll);
-    o_rBumper.whenPressed(z_ShooterFireBelts);
+    o_rBumper.whileHeld(z_AimAdjustUp);
     o_lBumper.whileHeld(z_AimAdjustDown);
 
-
+    o_dPadUp.whenPressed(z_TotalFire);
     
 
   }
