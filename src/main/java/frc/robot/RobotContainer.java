@@ -91,6 +91,7 @@ public class RobotContainer {
   private final Command z_AutoSlalom = new AutoSlalom(s_DriveSubsystem);
 
   private final Command z_AutoDriveVisionCorrection = new AutoDriveVisionCorrection(s_DriveSubsystem, v_AutoDistance, v_LeftSpeed, v_RightSpeed);
+  private final Command z_AutoBasic = new AutoBasic(s_DriveSubsystem, s_ShooterSubsystem, s_BeltSubsystem);
 
   // Vision Commands
   private final Command z_VisionAlign = new VisionAlign(s_DriveSubsystem);
@@ -160,12 +161,13 @@ public class RobotContainer {
     o_chooser.addOption("Auto RIght 90 Encoder", z_AutoRight90Encoder);
     o_chooser.addOption("Auto Right 90 Timed", z_AutoRight90Timed);
     o_chooser.addOption("Auto Right 90 Gyro", z_AutoRight90Gyro);*/
-    o_chooser.addOption("Barrel", z_AutoBarrel);
-    o_chooser.addOption("Slalom", z_AutoSlalom);
-    o_chooser.addOption("Bounce", z_AutoBounce);
+    //o_chooser.addOption("Barrel", z_AutoBarrel);
+    //o_chooser.addOption("Slalom", z_AutoSlalom);
+    //o_chooser.addOption("Bounce", z_AutoBounce);
+    o_chooser.addOption("Basic Auto", z_AutoBasic);
 
     // Vision stuff
-    o_chooser.addOption("Vision Right", z_VisionAlign);
+    //o_chooser.addOption("Vision Right", z_VisionAlign);
     Shuffleboard.getTab("Autonomous").add(o_chooser);
     s_DriveSubsystem.setDefaultCommand(z_DriveTeleop);
     s_GateSubsystem.setDefaultCommand(z_gate1Down);
