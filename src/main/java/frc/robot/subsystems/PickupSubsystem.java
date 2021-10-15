@@ -36,6 +36,8 @@ public class PickupSubsystem extends SubsystemBase {
     pickupMotorTop.setNeutralMode(NeutralMode.Brake);
     pickupMotorBottom.setNeutralMode(NeutralMode.Brake);
     Timer = new Timer();
+    v_pickupSpeedArm = 0;
+
   }
   public void resetTimer() {
     Timer.reset();
@@ -53,6 +55,9 @@ public class PickupSubsystem extends SubsystemBase {
   }
   public void ArmUp(){
     v_pickupSpeedArm = .5;
+  }
+  public void ArmStop(){
+    v_pickupSpeedArm = 0.0;
   }
   @Override
   public void periodic() {

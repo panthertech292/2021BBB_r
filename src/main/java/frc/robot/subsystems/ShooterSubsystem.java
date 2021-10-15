@@ -219,20 +219,20 @@ public class ShooterSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
   // This method will be called once per scheduler run
-    UpdateTargetRPM();
+    //UpdateTargetRPM();
     
     //ShooterMotor.set(ShooterPID.calculate(getShooterSpeed(), v_PIDSetpoint));
-    if(v_RPMTarget<=50000){
-     ShooterMotor.set(v_shooterSpeed/*+RobotContainer.getShooterSpeedAdjust()*/);
+    //if(v_RPMTarget<=50000){
+  ShooterMotor.set(v_shooterSpeed/*+RobotContainer.getShooterSpeedAdjust()*/);
      //ShooterMotor.set(ShooterPID.calculate(getEncoderRate(), v_PIDSetpoint));
-    }
-    else{
+    //}
+    //else{
       //ShooterMotor.set(PID(v_RPMTarget));
-    }
-    AimMotor.set(v_aimSpeed);
+    //}
+    //AimMotor.set(v_aimSpeed);
    // System.out.println(getAimEncoder());
-    resetAimEncoder();
-    aimResetCheck();
+    //resetAimEncoder();
+    //aimResetCheck();
     
    // SmartDashboard.putNumber("ShooterEncoderRate", getEncoderRate());
    // SmartDashboard.getNumber("v_RPMTarget", v_RPMTarget);

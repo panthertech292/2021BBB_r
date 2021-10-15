@@ -31,7 +31,7 @@ public class LiftArmToggle extends CommandBase {
     //  LiftSubsystem.LiftRaiseArms();
     //}
     //v_LiftArmToggleRan = true;
-    LiftSubsystem.LiftToggleArms();
+    //LiftSubsystem.LiftToggleArms();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

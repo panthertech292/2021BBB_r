@@ -22,8 +22,9 @@ public class TotalFire extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new BeltForwardAll(s_BeltSubsystem),
-      new ShooterFireBelts(s_ShooterSubsystem, s_BeltSubsystem)
+      //new BeltForwardAll(s_BeltSubsystem),
+      //new ShooterFireBelts(s_ShooterSubsystem, s_BeltSubsystem)
+      new ShooterFireFull(s_ShooterSubsystem)
     );
   }
 }

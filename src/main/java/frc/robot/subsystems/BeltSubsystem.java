@@ -101,7 +101,7 @@ public class BeltSubsystem extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SetBelts();
+    //SetBelts();
     
     //System.out.println(BallReadyToFire());
     

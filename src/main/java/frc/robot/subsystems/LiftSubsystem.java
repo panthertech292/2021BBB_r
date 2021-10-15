@@ -22,8 +22,8 @@ public class LiftSubsystem extends SubsystemBase {
   private final WPI_TalonSRX liftWinchMotor1;
   private final WPI_TalonSRX liftWinchMotor2;
   //Solenoids
-  private final DoubleSolenoid liftSolenoidLeft;
-  private final DoubleSolenoid liftSolenoidRight;
+  //private final DoubleSolenoid liftSolenoidLeft;
+  //private final DoubleSolenoid liftSolenoidRight;
   //Variables
   private double v_liftWinchSpeed;
 
@@ -32,8 +32,8 @@ public class LiftSubsystem extends SubsystemBase {
     liftWinchMotor1 = new WPI_TalonSRX(LiftConstants.kLiftWinchMotor1);
     liftWinchMotor2 = new WPI_TalonSRX(LiftConstants.kLiftWinchMotor2);
     //Solenoids
-    liftSolenoidLeft = new DoubleSolenoid(LiftConstants.kliftSolenoidLeftUp, LiftConstants.kliftSolenoidLeftDown);
-    liftSolenoidRight = new DoubleSolenoid(LiftConstants.kliftSolenoidRightUp, LiftConstants.kliftSolenoidRightDown);
+    //liftSolenoidLeft = new DoubleSolenoid(LiftConstants.kliftSolenoidLeftUp, LiftConstants.kliftSolenoidLeftDown);
+    //liftSolenoidRight = new DoubleSolenoid(LiftConstants.kliftSolenoidRightUp, LiftConstants.kliftSolenoidRightDown);
     //Variables
     v_liftWinchSpeed = 0.0;
   }
@@ -48,7 +48,7 @@ public class LiftSubsystem extends SubsystemBase {
   public void LiftStopWinch(){
     v_liftWinchSpeed = 0.0;
   }
-  public void LiftRaiseArms(){
+  /*public void LiftRaiseArms(){
     System.out.println("Going up!");
     liftSolenoidLeft.set(Value.kForward);
     liftSolenoidRight.set(Value.kForward);
@@ -62,12 +62,12 @@ public class LiftSubsystem extends SubsystemBase {
     System.out.println("Toggling Arms!");
     liftSolenoidRight.toggle();
     liftSolenoidLeft.toggle();
-  }
+  }*/
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    liftWinchMotor1.set(v_liftWinchSpeed);
-    liftWinchMotor2.set(v_liftWinchSpeed);
+    //liftWinchMotor1.set(v_liftWinchSpeed);
+    //liftWinchMotor2.set(v_liftWinchSpeed);
     //System.out.println(liftSolenoidLeft.get());
     //System.out.println(liftSolenoidRight.get());
   }

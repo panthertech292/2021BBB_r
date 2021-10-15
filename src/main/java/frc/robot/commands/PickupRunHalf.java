@@ -38,7 +38,8 @@ public class PickupRunHalf extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     PickupSubsystem.ChangeSetpoint(0);
-    PickupSubsystem.ArmUp();
+    PickupSubsystem.ArmStop();
+    //PickupSubsystem.ArmUp();
   }
 
   // Returns true when the command should end.

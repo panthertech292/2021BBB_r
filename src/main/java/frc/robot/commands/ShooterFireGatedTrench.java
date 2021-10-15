@@ -10,12 +10,12 @@ import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.GateSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 
-public class ShooterFireGated extends CommandBase {
+public class ShooterFireGatedTrench extends CommandBase {
   private final ShooterSubsystem ShooterSubsystem;
   private final GateSubsystem GateSubsystem; 
   
-  /** Creates a new ShooterFireGated. */
-  public ShooterFireGated(ShooterSubsystem s_ShooterSubsystem, GateSubsystem s_GateSubsystem) {
+  /** Creates a new ShooterFireGatedTrench. */
+  public ShooterFireGatedTrench(ShooterSubsystem s_ShooterSubsystem, GateSubsystem s_GateSubsystem) {
     ShooterSubsystem = s_ShooterSubsystem;
     GateSubsystem = s_GateSubsystem;
 
@@ -36,7 +36,7 @@ public class ShooterFireGated extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    ShooterSubsystem.changeSetSpeed((ShooterConstants.kShooterHalf));
+    ShooterSubsystem.changeSetSpeed((ShooterConstants.kShooterTrench));
     if(ShooterSubsystem.getTimerValue() >= 0.5){
       GateSubsystem.Gate1Down();
     }

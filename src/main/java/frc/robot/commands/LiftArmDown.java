@@ -20,7 +20,7 @@ public class LiftArmDown extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    LiftSubsystem.LiftLowerArms();
+    //LiftSubsystem.LiftLowerArms();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

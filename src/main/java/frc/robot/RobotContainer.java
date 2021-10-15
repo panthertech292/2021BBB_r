@@ -91,7 +91,7 @@ public class RobotContainer {
   private final Command z_AutoSlalom = new AutoSlalom(s_DriveSubsystem);
 
   private final Command z_AutoDriveVisionCorrection = new AutoDriveVisionCorrection(s_DriveSubsystem, v_AutoDistance, v_LeftSpeed, v_RightSpeed);
-  private final Command z_AutoBasic = new AutoBasic(s_DriveSubsystem, s_ShooterSubsystem, s_BeltSubsystem);
+  private final Command z_AutoBasic = new AutoBasic(s_DriveSubsystem, s_ShooterSubsystem, s_GateSubsystem);
 
   // Vision Commands
   private final Command z_VisionAlign = new VisionAlign(s_DriveSubsystem);
@@ -120,6 +120,8 @@ public class RobotContainer {
   private final Command z_TotalFireFarZone = new TotalFireFarZone(s_ShooterSubsystem, s_BeltSubsystem);
   private final Command z_FullShootFromFar = new FullShootFromFar(s_ShooterSubsystem, s_BeltSubsystem, s_DriveSubsystem);
   private final Command z_TotalFire = new TotalFire(s_ShooterSubsystem, s_BeltSubsystem);
+  private final Command z_ShooterFireGatedLine = new ShooterFireGatedLine(s_ShooterSubsystem, s_GateSubsystem);
+  private final Command z_ShooterFireGatedTrench = new ShooterFireGatedTrench(s_ShooterSubsystem, s_GateSubsystem);
   // Pickup Commands
   private final Command z_PickupRunHalf = new PickupRunHalf(s_PickupSubsystem);
 
@@ -233,24 +235,30 @@ public class RobotContainer {
     // o_xButton.whenPressed(z_VisionAll);
 
     //Driver
-    d_backButton.whileHeld(z_LiftWinchReverse);
-    d_rBumper.whileHeld(z_AimAdjustUp);
-    d_lBumper.whileHeld(z_AimAdjustDown);
+    //d_backButton.whileHeld(z_LiftWinchReverse);
+    //d_rBumper.whileHeld(z_AimAdjustUp);
+    //d_lBumper.whileHeld(z_AimAdjustDown);
+    //d_dPadUp.whenPressed(z_TotalFire);
+    d_aButton.whenPressed(z_ShooterFireGated);
+    d_bButton.whileHeld(z_PickupRunHalf);
+    d_xButton.whileHeld(z_ShooterFireGatedLine);
+    d_yButton.whenHeld(z_ShooterFireGatedTrench);
 
-    d_dPadUp.whenPressed(z_TotalFire);
+    d_rBumper.whileHeld(z_VisionAlign);
 
     //Operator
-    o_aButton.whenPressed(z_TotalFireNearZone);
-    o_bButton.whenPressed(z_TotalFireSecondZone);
-    o_xButton.whileHeld(z_LiftWinchRun);
-    o_yButton.whenHeld(z_LiftArmToggle);
+    o_aButton.whenPressed(z_ShooterFireGated);
+    o_bButton.whileHeld(z_PickupRunHalf);
+    o_xButton.whileHeld(z_ShooterFireGatedLine);
+    o_yButton.whenHeld(z_ShooterFireGatedTrench);
 
-    o_startButton.whileHeld(z_BeltForwardAll);
-    o_backButton.whileHeld(z_BeltBackwardAll);
-    o_rBumper.whileHeld(z_AimAdjustUp);
-    o_lBumper.whileHeld(z_AimAdjustDown);
+    //o_startButton.whileHeld(z_BeltForwardAll);
+    //o_backButton.whileHeld(z_BeltBackwardAll);
+    o_rBumper.whileHeld(z_VisionAlign);
+    //o_lBumper.whileHeld(z_VisionAll);
 
-    o_dPadUp.whenPressed(z_TotalFire);
+    //o_dPadUp.whileHeld(z_TotalFire);
+    o_dPadDown.whenPressed(z_VisionAlign);
     
 
   }
