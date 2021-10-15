@@ -95,6 +95,7 @@ public class RobotContainer {
 
   // Vision Commands
   private final Command z_VisionAlign = new VisionAlign(s_DriveSubsystem);
+  private final Command z_VisionAlignSimple = new VisionAlignSimple(s_DriveSubsystem);
   private final Command z_VisionDistance = new VisionDistance(s_DriveSubsystem, v_AutoAngle);
   private final Command z_VisionAll = new VisionAll(s_DriveSubsystem, v_AutoAngle);
   // Drive Commands
@@ -214,34 +215,13 @@ public class RobotContainer {
     final POVButton o_dPadLeft = new POVButton(io_opercontroller, 270);
     final JoystickButton o_rBumper = new JoystickButton(io_opercontroller,Button.kBumperRight.value);
     final JoystickButton o_lBumper = new JoystickButton(io_opercontroller,Button.kBumperLeft.value);
-    
-
-    
-    
-    
-    // Driver Button Binds6
-    //d_aButton.whileHeld(z_BeltForwardAll);
-    //d_bButton.whenPressed(z_AutoBarrel);
-    //d_xButton.whileHeld(z_ShooterFirePID);
-    //d_xButton.whenPressed(z_ShooterFireBelts);
-    //d_yButton.whenPressed(z_AimAdjustFarZone);
-    
-    
-    
+        
     if(getRobotID()== 0){
       //d_backButton.whileHeld(z_AimAdjustDown);
       //d_startButton.whileHeld(z_AimAdjustUp);
       
     }
-    //d_aButton.whenPressed(z_VisionAlign);
-    //d_bButton.whenPressed(z_AutoSquareRight);
-    // o_xButton.whenPressed(z_VisionAll);
-
     //Driver
-    //d_backButton.whileHeld(z_LiftWinchReverse);
-    //d_rBumper.whileHeld(z_AimAdjustUp);
-    //d_lBumper.whileHeld(z_AimAdjustDown);
-    //d_dPadUp.whenPressed(z_TotalFire);
     d_aButton.whenPressed(z_ShooterFireGated);
     d_bButton.whileHeld(z_PickupRunHalf);
     d_xButton.whenPressed(z_ShooterFireGatedLine);
@@ -262,6 +242,7 @@ public class RobotContainer {
     o_lBumper.whenPressed(z_ShooterFireGatedLineVision);
 
     o_dPadUp.whileHeld(z_VisionAlign);
+    o_dPadDown.whenPressed(z_VisionAlignSimple);
 
     
 

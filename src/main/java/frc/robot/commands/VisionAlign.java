@@ -45,29 +45,29 @@ public class VisionAlign extends CommandBase {
     System.out.println("Running the move command");
     DriveSubsystem.driveModePowerSetPoint();
     if(DriveSubsystem.visionTargetSensor()>=1.0){
-    DriveSubsystem.resetTimer();
-    v_aligning = true;
-    DriveSubsystem.visionAlignLeft();
-    DriveSubsystem.visionAlignRight();
-    DriveSubsystem.visionAlignLeft();
-    DriveSubsystem.visionAlignRight();
-    DriveSubsystem.visionAlignLeft();
-    DriveSubsystem.visionAlignRight();
-    System.out.println("Seeing a target!!!!!!!!");
+      DriveSubsystem.resetTimer();
+      v_aligning = true;
+      DriveSubsystem.visionAlignLeft();
+      DriveSubsystem.visionAlignRight();
+      DriveSubsystem.visionAlignLeft();
+      DriveSubsystem.visionAlignRight();
+      DriveSubsystem.visionAlignLeft();
+      DriveSubsystem.visionAlignRight();
+      System.out.println("Seeing a target!!!!!!!!");
     }
     
     else{
       if(v_aligning == false){
-      if(DriveSubsystem.getTimerValue()<1.0 && DriveSubsystem.getTimerValue()>0.0){
-        System.out.println("No Target!!!!!!!!");
-      DriveSubsystem.changePowerSetPoints(-0.5, 0.5); //Adjust values!!!
+        if(DriveSubsystem.getTimerValue()<1.0 && DriveSubsystem.getTimerValue()>0.0){
+          System.out.println("No Target!!!!!!!!");
+          DriveSubsystem.changePowerSetPoints(-0.5, 0.5); //Adjust values!!!
       }
-      if(DriveSubsystem.getTimerValue()>1.0 && DriveSubsystem.getTimerValue()<2.5){
-        DriveSubsystem.changePowerSetPoints(-0.0, 0.0);
+        if(DriveSubsystem.getTimerValue()>1.0 && DriveSubsystem.getTimerValue()<2.5){
+          DriveSubsystem.changePowerSetPoints(-0.0, 0.0);
       }
-      if(DriveSubsystem.getTimerValue()>2.5 && DriveSubsystem.getTimerValue()<4.0){
-        System.out.println("No Target2!!!!!!!!");
-        DriveSubsystem.changePowerSetPoints(0.5, -0.5); //Adjust Values!!!
+        if(DriveSubsystem.getTimerValue()>2.5 && DriveSubsystem.getTimerValue()<4.0){
+          System.out.println("No Target2!!!!!!!!");
+          DriveSubsystem.changePowerSetPoints(0.5, -0.5); //Adjust Values!!!
         }
         if(DriveSubsystem.getTimerValue()>4.0 && DriveSubsystem.getTimerValue()<5.5){
           DriveSubsystem.changePowerSetPoints(-0.0, 0.0);
