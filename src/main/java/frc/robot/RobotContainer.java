@@ -122,10 +122,13 @@ public class RobotContainer {
   private final Command z_TotalFire = new TotalFire(s_ShooterSubsystem, s_BeltSubsystem);
   private final Command z_ShooterFireGatedLine = new ShooterFireGatedLine(s_ShooterSubsystem, s_GateSubsystem);
   private final Command z_ShooterFireGatedTrench = new ShooterFireGatedTrench(s_ShooterSubsystem, s_GateSubsystem);
+
+  //Shoot With Vision Commands
+  private final Command z_ShooterFireGatedLineVision = new ShooterFireGatedLineVision(s_DriveSubsystem, s_ShooterSubsystem, s_GateSubsystem);
+  private final Command z_ShooterFireGatedTrenchVision = new ShooterFireGatedTrenchVision(s_DriveSubsystem, s_ShooterSubsystem, s_GateSubsystem);
+
   // Pickup Commands
   private final Command z_PickupRunHalf = new PickupRunHalf(s_PickupSubsystem);
-
-
   private final Command z_gate1Down = new Gate1Down(s_GateSubsystem);
   private final Command z_gate1Mid = new Gate1Up(s_GateSubsystem);
   private final Command z_gate1Max = new Gate1Max(s_GateSubsystem);
@@ -241,24 +244,25 @@ public class RobotContainer {
     //d_dPadUp.whenPressed(z_TotalFire);
     d_aButton.whenPressed(z_ShooterFireGated);
     d_bButton.whileHeld(z_PickupRunHalf);
-    d_xButton.whileHeld(z_ShooterFireGatedLine);
-    d_yButton.whenHeld(z_ShooterFireGatedTrench);
+    d_xButton.whenPressed(z_ShooterFireGatedLine);
+    d_yButton.whenPressed(z_ShooterFireGatedTrench);
 
-    d_rBumper.whileHeld(z_VisionAlign);
+    d_rBumper.whenPressed(z_ShooterFireGatedTrenchVision);
+    d_lBumper.whenPressed(z_ShooterFireGatedLineVision);
+
+    d_dPadUp.whileHeld(z_VisionAlign);
 
     //Operator
     o_aButton.whenPressed(z_ShooterFireGated);
     o_bButton.whileHeld(z_PickupRunHalf);
-    o_xButton.whileHeld(z_ShooterFireGatedLine);
-    o_yButton.whenHeld(z_ShooterFireGatedTrench);
+    o_xButton.whenPressed(z_ShooterFireGatedLine);
+    o_yButton.whenPressed(z_ShooterFireGatedTrench);
 
-    //o_startButton.whileHeld(z_BeltForwardAll);
-    //o_backButton.whileHeld(z_BeltBackwardAll);
-    o_rBumper.whileHeld(z_VisionAlign);
-    //o_lBumper.whileHeld(z_VisionAll);
+    o_rBumper.whenPressed(z_ShooterFireGatedTrenchVision);
+    o_lBumper.whenPressed(z_ShooterFireGatedLineVision);
 
-    //o_dPadUp.whileHeld(z_TotalFire);
-    o_dPadDown.whenPressed(z_VisionAlign);
+    o_dPadUp.whileHeld(z_VisionAlign);
+
     
 
   }
