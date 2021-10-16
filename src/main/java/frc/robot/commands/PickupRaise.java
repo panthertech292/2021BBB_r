@@ -8,44 +8,42 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.PickupSubsystem;
 
-public class VisionDistance extends CommandBase {
-  private final DriveSubsystem DriveSubsystem;
+public class PickupRaise extends CommandBase {
+  private final PickupSubsystem PickupSubsystem;
+
   /**
-   * Creates a new VisionDistance.
+   * Creates a new PickupRaise.
    */
-  private double VisionAreaTarget;
-  public VisionDistance(DriveSubsystem s_DriveSubsystem, double v_VisionAreaTarget) {
-    DriveSubsystem = s_DriveSubsystem;
-    VisionAreaTarget = v_VisionAreaTarget;
+  public PickupRaise(PickupSubsystem s_PickupSubsystem){
+    PickupSubsystem = s_PickupSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(s_DriveSubsystem);
+    addRequirements(s_PickupSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    DriveSubsystem.changePowerSetPoints(0,0);
+    PickupSubsystem.ArmUp();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    System.out.println("Running the distance command");
-    DriveSubsystem.driveModePowerSetPoint();
-    DriveSubsystem.simpleVisionDistanceArea(VisionAreaTarget);
+    
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    DriveSubsystem.changePowerSetPoints(0,0);
+    PickupSubsystem.ArmStop();
+    //PickupSubsystem.ArmUp();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return DriveSubsystem.visionFinishDistance(VisionAreaTarget); //&& DriveSubsystem.getRightEncoderVelocity() == 0.0;
+    return false;
   }
 }

@@ -62,8 +62,8 @@ public final class Constants {
         public static final double kShooterStop = 0.0;
         public static final double kShooterHalf = 0.5;
         public static final double kShooterFull = 0.8;
-        public static final double kShooterLine = 0.5; //Placeholder value!
-        public static final double kShooterTrench = 0.6; //Placeholder value!
+        public static final double kShooterLine = 0.6; //Placeholder value!
+        public static final double kShooterTrench = 0.8; //Placeholder value!
     
         //DIO
         public static final int kAimLimitSwitch = 4;

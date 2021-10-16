@@ -134,6 +134,7 @@ public class RobotContainer {
   private final Command z_gate1Mid = new Gate1Up(s_GateSubsystem);
   private final Command z_gate1Max = new Gate1Max(s_GateSubsystem);
   private final Command z_GateToggleTimed = new GateToggleTimed(s_GateSubsystem);
+  private final Command z_PickupRaise = new PickupRaise(s_PickupSubsystem);
 
   //Belt Commands
 
@@ -229,8 +230,10 @@ public class RobotContainer {
 
     d_rBumper.whenPressed(z_ShooterFireGatedTrenchVision);
     d_lBumper.whenPressed(z_ShooterFireGatedLineVision);
-
-    d_dPadUp.whileHeld(z_VisionAlign);
+    
+    d_backButton.whileHeld(z_PickupRaise);
+    
+    d_dPadDown.whenPressed(z_VisionAlignSimple);
 
     //Operator
     o_aButton.whenPressed(z_ShooterFireGated);
@@ -240,8 +243,9 @@ public class RobotContainer {
 
     o_rBumper.whenPressed(z_ShooterFireGatedTrenchVision);
     o_lBumper.whenPressed(z_ShooterFireGatedLineVision);
+    
+    o_backButton.whileHeld(z_PickupRaise);
 
-    o_dPadUp.whileHeld(z_VisionAlign);
     o_dPadDown.whenPressed(z_VisionAlignSimple);
 
     

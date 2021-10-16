@@ -290,6 +290,7 @@ public class DriveSubsystem extends SubsystemBase {
   // Actually turns robot right, aimed too far left
   public void visionAlignLeft() {
     if (v_limeLightX > 1.5) {
+      System.out.println("Going left baby");
       v_loopCount = v_loopCount + 1;
       if (RobotContainer.getRobotID() == Constants.kProductionBotID) {
         changePowerSetPoints(.1+ReusablePID1(.0,.2*1.4, 0.01*4*2, v_limeLightX, 0,0.55), -.1 -ReusablePID2(.0,.2*1.4, 0.01*4*2, v_limeLightX, 0,0.4));
@@ -327,6 +328,16 @@ public class DriveSubsystem extends SubsystemBase {
       }
     }
   }
+  public void simpleVisionAlignRight(){
+    if (v_limeLightX >1){
+      changePowerSetPoints(.45, -.45);
+    }
+  }
+  public void simpleVisionAlignLeft(){
+    if (v_limeLightX < -1){
+      changePowerSetPoints(-.45, .45);
+    }
+  }
 
   public void visionDistanceArea(double v_VisionAreaTarget) {
     if (v_limeLightArea > v_VisionAreaTarget) {
@@ -344,6 +355,14 @@ public class DriveSubsystem extends SubsystemBase {
         changePowerSetPoints( .1-ReusablePID1(.45, .05, 0.008, v_limeLightArea, v_VisionAreaTarget, .5), .1-ReusablePID2(.45, .05, 0.008, v_limeLightArea, v_VisionAreaTarget, .5));
 
       }
+    }
+  }
+  public void simpleVisionDistanceArea(double v_VisionAreaTarget){
+    if (v_limeLightArea > v_VisionAreaTarget){
+      changePowerSetPoints(-.45, -.45);
+    }
+    if (v_limeLightArea < v_VisionAreaTarget){
+      changePowerSetPoints(.45, .45);
     }
   }
 

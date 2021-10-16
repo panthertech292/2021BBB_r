@@ -29,9 +29,9 @@ public class VisionAll extends SequentialCommandGroup {
 
     addCommands(
       
-    new VisionAlign(s_DriveSubsystem),
+    new VisionAlignSimple(s_DriveSubsystem),
     new VisionDistance(s_DriveSubsystem, VisionTargetArea),
-    new VisionAlign(s_DriveSubsystem)
+    new VisionAlignSimple(s_DriveSubsystem)
     );
   }
 }

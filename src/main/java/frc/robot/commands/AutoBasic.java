@@ -28,7 +28,7 @@ public class AutoBasic extends SequentialCommandGroup {
     addRequirements(s_DriveSubsystem, s_ShooterSubsystem, s_GateSubsystem);
 
     addCommands(
-    new AutoForward(s_DriveSubsystem, .5, .5, 1),
+    new AutoForward(s_DriveSubsystem, -.5, -.5, 1),
     //This is a placeholder value for vision all!
     new VisionAll(s_DriveSubsystem, 1),
     new ShooterFireGated(s_ShooterSubsystem, s_GateSubsystem)
