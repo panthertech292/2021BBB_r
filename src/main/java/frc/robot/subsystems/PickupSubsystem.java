@@ -47,14 +47,14 @@ public class PickupSubsystem extends SubsystemBase {
     return Math.abs(Timer.get());
   }
   public void ChangeSetpoint(double pickupspeed) {
-    v_pickupSpeedTop = -pickupspeed;
+    v_pickupSpeedTop = -pickupspeed + 0.05;
     v_pickupSpeedBottom = pickupspeed;
   }
   public void ArmDown() {
-    v_pickupSpeedArm = -.5;
+    v_pickupSpeedArm = -.6;
   }
   public void ArmUp(){
-    v_pickupSpeedArm = .5;
+    v_pickupSpeedArm = .65;
   }
   public void ArmStop(){
     v_pickupSpeedArm = 0.0;

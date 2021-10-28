@@ -11,7 +11,7 @@ public class VisionAlignSimple extends CommandBase {
   private final DriveSubsystem DriveSubsystem;
 
   //Vars
-  private boolean v_Finished;
+  private double v_FinishedCount;
   /** Creates a new VisionAlignSimple. */
   public VisionAlignSimple(DriveSubsystem s_DriveSubsystem) {
     DriveSubsystem = s_DriveSubsystem;
@@ -19,13 +19,14 @@ public class VisionAlignSimple extends CommandBase {
     addRequirements(s_DriveSubsystem);
 
     //Vars
-    v_Finished = false;
+    v_FinishedCount = 0;
   } 
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     DriveSubsystem.changePowerSetPoints(0,0);
+    v_FinishedCount = 0;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -36,7 +37,7 @@ public class VisionAlignSimple extends CommandBase {
     DriveSubsystem.driveModePowerSetPoint();
     DriveSubsystem.simpleVisionAlignLeft();
     DriveSubsystem.simpleVisionAlignRight();
-    
+    v_FinishedCount = v_FinishedCount + 1;
     
   }
 
@@ -50,7 +51,13 @@ public class VisionAlignSimple extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return DriveSubsystem.visionFinish();
+    if (v_FinishedCount > 10){
+      return true;
+    }
+    else{
+      return DriveSubsystem.visionFinish();
+    }
+    
   }
 }
 

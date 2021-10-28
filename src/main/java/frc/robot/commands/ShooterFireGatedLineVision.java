@@ -25,7 +25,7 @@ public class ShooterFireGatedLineVision extends SequentialCommandGroup {
     GateSubsystem = s_GateSubsystem;
     addRequirements(s_DriveSubsystem);
     addCommands(
-      new VisionAll(s_DriveSubsystem, 1), //
+      new VisionAll(s_DriveSubsystem, 2), //
       new ShooterFireGatedLine(s_ShooterSubsystem, s_GateSubsystem)
     );
   }

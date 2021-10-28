@@ -284,7 +284,8 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
      //An ExampleCommand will run in autonomous
-    return o_chooser.getSelected();
+    return z_AutoBasic;
+    //return o_chooser.getSelected();
   }
   /*public static double getShooterSubsystemRate(){
     double rate;
