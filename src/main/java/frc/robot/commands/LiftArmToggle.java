@@ -32,6 +32,7 @@ public class LiftArmToggle extends CommandBase {
     //}
     //v_LiftArmToggleRan = true;
     LiftSubsystem.LiftToggleArms();
+    //System.out.println("TESTING ARMS AHHHHHHHHHHHHH");
   }
 
   // Called every time the scheduler runs while the command is scheduled.

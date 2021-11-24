@@ -654,7 +654,7 @@ public class DriveSubsystem extends SubsystemBase {
     //Sets drive mode
     if (v_driveMode == c_modeTeleop) {
       driveTeleop();
-      slowDrive();
+      //slowDrive();
     } else {
       driveAuto();
     }

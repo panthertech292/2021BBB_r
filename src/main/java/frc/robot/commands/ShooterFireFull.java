@@ -31,6 +31,7 @@ public class ShooterFireFull extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    System.out.println("Shooter execute!");
     if(ShooterSubsystem.getAimEncoder()>=ShooterConstants.kstartingAim-10 && ShooterSubsystem.getAimEncoder() <=ShooterConstants.kstartingAim +10){
     ShooterSubsystem.changeSetSpeed(0.65); //reset to .65 after testing
     System.out.println("As intended!");
@@ -44,6 +45,7 @@ public class ShooterFireFull extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    System.out.println("Command STOP");
     ShooterSubsystem.ShooterStop();
   }
 

@@ -115,6 +115,9 @@ public class ShooterSubsystem extends SubsystemBase {
   }
 
   public void changeSetSpeed(double desiredSpeed) {
+    System.out.println("DESIRED SPEED");
+    System.out.println(desiredSpeed);
+
     v_shooterSpeed = desiredSpeed;
   }
 
@@ -223,7 +226,9 @@ public class ShooterSubsystem extends SubsystemBase {
     
     //ShooterMotor.set(ShooterPID.calculate(getShooterSpeed(), v_PIDSetpoint));
     if(v_RPMTarget<=50000){
-     ShooterMotor.set(v_shooterSpeed/*+RobotContainer.getShooterSpeedAdjust()*/);
+      //System.out.println("IN PERIODIC FIRE IF");
+     ShooterMotor.set(v_shooterSpeed);///*+RobotContainer.getShooterSpeedAdjust()*/);
+     System.out.println(v_shooterSpeed);
      //ShooterMotor.set(ShooterPID.calculate(getEncoderRate(), v_PIDSetpoint));
     }
     else{
@@ -233,6 +238,9 @@ public class ShooterSubsystem extends SubsystemBase {
    // System.out.println(getAimEncoder());
     resetAimEncoder();
     aimResetCheck();
+    
+    
+    //ShooterMotor.set(.70);
     
    // SmartDashboard.putNumber("ShooterEncoderRate", getEncoderRate());
    // SmartDashboard.getNumber("v_RPMTarget", v_RPMTarget);
